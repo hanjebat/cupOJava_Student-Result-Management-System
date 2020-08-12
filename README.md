@@ -1,0 +1,2 @@
+# cupOJava_Student-Result-Management-System
+A student result management system called eResult is a digital platform for a conventional paper-based examination result evaluation. The design approach in developing this multi-user web application project is MVC architectural and sequence diagram (Lorgat, Mohammad, 2018). The project will be developed using Java, JSP, HTML and CSS, as well as Apache Tomcat server and MySQL database management system support.
