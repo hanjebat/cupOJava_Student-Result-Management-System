@@ -12,7 +12,7 @@
 <%
 	int id = Integer.parseInt(request.getParameter("id"));
 	Class.forName("com.mysql.cj.jdbc.Driver");
-	Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eresult?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT","root","hannah");
+	Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/webapp?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT","username","password");
 	String sql = "SELECT * From course WHERE courseid =?";
 	PreparedStatement statement = con.prepareStatement(sql);
 	statement.setInt(1,id);
