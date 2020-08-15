@@ -43,7 +43,7 @@ public class course {
 	public boolean storeData() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eresult?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT","root","hannah");
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/webapp?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT","username","password");
 			String sql = "INSERT INTO course (course_code, course_name, credit_hour, lect_name) VALUES (?,?,?,?)";
 			PreparedStatement statement = con.prepareStatement(sql); //include sql query
 			statement.setString(1, getCourse_code());
@@ -59,17 +59,17 @@ public class course {
 		}
 	}
 	
-	public boolean updateData(int courseid) {
+	public boolean updateData(int id) {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eresult?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT","root","hannah");
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/webapp?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT","username","password");
 			String sql = "UPDATE course SET course_code =?, course_name = ?, credit_hour=?, lect_name=?  WHERE courseid=?";
 			PreparedStatement statement = con.prepareStatement(sql);
 			statement.setString(1, getCourse_code());
 			statement.setString(2, getCourse_name());
 			statement.setInt(3, getCredit_hour());
 			statement.setString(4, getLect_name());
-			statement.setInt(5, courseid);
+			statement.setInt(5, id);
 			statement.executeUpdate();
 			statement.close();
 			con.close();
@@ -80,13 +80,13 @@ public class course {
 		}
 	}
 	
-	public boolean deleteData(int courseid) {
+	public boolean deleteData(int id) {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eresult?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT","root","hannah");
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/webapp?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT","username","password");
 			String sql = "DELETE From course WHERE courseid = ?";
 			PreparedStatement statement = con.prepareStatement(sql);
-			statement.setInt(1, courseid);
+			statement.setInt(1, id);
 			statement.executeUpdate();
 			statement.close();
 			con.close();
