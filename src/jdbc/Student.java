@@ -1,4 +1,4 @@
-package eResult;
+package jdbc;
 
 
 import java.sql.Connection;
