@@ -29,7 +29,7 @@
 <%
 int count=0;
 Class.forName("com.mysql.cj.jdbc.Driver");
-Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eresult?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT","root","hannah");
+Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/webapp?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT","username","password");
 String sql="SELECT * FROM course";
 Statement statement = con.createStatement(); //for retrieving data from db
 ResultSet resultSet = statement.executeQuery(sql);
@@ -45,12 +45,11 @@ while(resultSet.next()){
 		<tr bgcolor="#FFFFFF">
 			<td align="center"><%= courseid %></td>
 			<td align="center"><%= course_code %></td>
-			<td align="center"><%= course_name %></td>
+			<td align="left"><%= course_name %></td>
 			<td align="center"><%= credit_hour %></td>
-			<td align="center"><%= lect_name %></td>
-			<td><a href="EditCourse.jsp?id=<%=courseid%>">Edit</a></td>
-			<td><a href="DeleteCourse?id=<%=courseid%>">Delete</a></td>
-			
+			<td align="left"><%= lect_name %></td>
+			<td><a href="EditCourse.jsp?id=<%=id%>">Edit</a></td>
+			<td><a href="DeleteCourse?id=<%=id%>">Delete</a></td>
 		</tr>
 <%}
 statement.close();
