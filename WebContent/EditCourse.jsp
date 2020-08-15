@@ -9,7 +9,6 @@
 <body>
 <form method="post" action="CourseController">
 <input type="hidden" name="id" value="<%=request.getParameter("id") %>"/>
-
 <%
 	int id = Integer.parseInt(request.getParameter("id"));
 	Class.forName("com.mysql.cj.jdbc.Driver");
@@ -42,7 +41,6 @@
 	 </table>
 	<input type="submit" value="Submit"/>
   </div>
-
 <%} 
 	statement.close();
 	con.close();%>
