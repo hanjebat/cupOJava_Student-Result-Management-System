@@ -35,10 +35,10 @@ public class DeleteCourse extends HttpServlet {
 		course course = new course();
 		
 		if(course.deleteData(courseid)==true) {
-			RequestDispatcher rd = request.getRequestDispatcher("RegistrationPage.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("Main_Course.jsp");
 			rd.forward(request, response);
 		}else {
-			RequestDispatcher rd = request.getRequestDispatcher("RegistrationPage.jsp?msg=1");
+			RequestDispatcher rd = request.getRequestDispatcher("Main_Course.jsp?msg=1");
 			rd.forward(request, response);
 		}
 		
