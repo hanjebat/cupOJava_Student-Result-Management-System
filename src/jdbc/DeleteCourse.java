@@ -30,7 +30,7 @@ public class DeleteCourse extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		int courseid = Integer.parseInt(request.getParameter("courseid"));
+		int courseid = Integer.parseInt(request.getParameter("id"));
 		
 		course course = new course();
 		
