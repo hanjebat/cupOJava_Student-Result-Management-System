@@ -36,7 +36,7 @@ ResultSet resultSet = statement.executeQuery(sql);
 		
 while(resultSet.next()){
 	count++;
-	int courseid = resultSet.getInt("courseid");
+	int id = resultSet.getInt("courseid");
 	String course_code = resultSet.getString("course_code");
 	String course_name = resultSet.getString("course_name");
 	int credit_hour = resultSet.getInt("credit_hour");
