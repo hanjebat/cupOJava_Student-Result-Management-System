@@ -58,7 +58,7 @@ String password=request.getParameter("password");
             <tr><th bgcolor="#DEB887"> Password</th><td><%=rs.getString("password")%></td></tr>     
             
             <tr><td></td><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href='editForm.jsp?username=<%=rs.getString("username")%>'>Edit</a>
-			&nbsp;&nbsp;&nbsp;&nbsp;<a href='deleteUser.jsp?username=<%=rs.getString("username")%>'>Delete</a></td></tr> 
+	    </td></tr> 
             <%
 
           } pstmt.close();
