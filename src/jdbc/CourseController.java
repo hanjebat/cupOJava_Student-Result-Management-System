@@ -44,12 +44,12 @@ public class CourseController extends HttpServlet {
 			course.setCredit_hour(credit_hour);
 			course.setLect_name(lect_name);
 			
-			if(request.getParameter("courseid")!= null && !request.getParameter("courseid").isEmpty()) {
+			if(request.getParameter("id")!= null && !request.getParameter("id").isEmpty()) {
 				
-				int courseid = Integer.parseInt(request.getParameter("courseid"));
+				int courseid = Integer.parseInt(request.getParameter("id"));
 				
 				if(course.updateData(courseid)==true) {
-					RequestDispatcher rd = request.getRequestDispatcher("RegistrationPage.jsp");
+					RequestDispatcher rd = request.getRequestDispatcher("Main_Course.jsp");
 					rd.forward(request, response);
 				}else {
 					RequestDispatcher rd = request.getRequestDispatcher("EditCourse.jsp");
@@ -58,7 +58,7 @@ public class CourseController extends HttpServlet {
 			}
 			else {
 			if(course.storeData()==true) {
-				RequestDispatcher rd = request.getRequestDispatcher("RegistrationPage.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("Main_Course.jsp");
 				rd.forward(request, response);
 			}
 			else {
