@@ -13,10 +13,10 @@
 
 
 <form method="post" action="CourseController">
-<input type="hidden" name="courseid" value="<%=request.getParameter("courseid") %>"/>
+<input type="hidden" name="courseid" value="<%=request.getParameter("id") %>"/>
 
 <%
-	int id = Integer.parseInt(request.getParameter("courseid")); ///KENAPA ERROR???!
+	int id = Integer.parseInt(request.getParameter("id"));
 	Class.forName("com.mysql.cj.jdbc.Driver");
 	Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eresult?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT","root","hannah");
 	String sql = "SELECT * From course WHERE courseid=?";
