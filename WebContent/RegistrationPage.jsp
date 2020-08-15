@@ -48,8 +48,9 @@ while(resultSet.next()){
 			<td align="center"><%= course_name %></td>
 			<td align="center"><%= credit_hour %></td>
 			<td align="center"><%= lect_name %></td>
-			<td><input type="submit" value="Edit" formaction="EditCourse.jsp?id=<%=courseid%>"/></td>
-			<td><input type="submit" value="Delete" formaction="DeleteCourse?id=<%=courseid%>"/></td>	
+			<td><a href="EditCourse.jsp?id=<%=courseid%>">Edit</a></td>
+			<td><a href="DeleteCourse?id=<%=courseid%>">Delete</a></td>
+			
 		</tr>
 <%}
 statement.close();
