@@ -43,7 +43,7 @@ while(resultSet.next()){
 	String lect_name = resultSet.getString("lect_name");
 %>
 		<tr bgcolor="#FFFFFF">
-			<td align="center"><%= courseid %></td>
+			<td align="center"><%= id %></td>
 			<td align="center"><%= course_code %></td>
 			<td align="left"><%= course_name %></td>
 			<td align="center"><%= credit_hour %></td>
