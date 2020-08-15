@@ -1,0 +1,97 @@
+package jdbc;
+
+import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+
+
+@WebServlet("/StudentController")
+public class StudentController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+    
+
+    public StudentController() {
+
+        super();
+
+
+    }
+
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		 
+	     String name = request.getParameter("name");
+	     int matric = Integer.parseInt(request.getParameter("matric"));
+	     String kuliyyah = request.getParameter("kuliyyah");
+	     int phone = Integer.parseInt(request.getParameter("phone"));
+	     String username = request.getParameter("username");
+	     String password = request.getParameter("password");
+
+
+		if(name != null && request.getParameter("matric") != null && kuliyyah != null && request.getParameter("phone") != null && username != null && password != null) {
+
+			Student student = new Student();
+
+			student.setName(name);
+			student.setMatric(matric);
+			student.setKuliyyah(kuliyyah);
+			student.setPhone(phone);
+			student.setUsername(username);
+			student.setPassword(password);
+
+			
+
+			if(request.getParameter("id")!= null && !request.getParameter("id").isEmpty()) {
+
+				int student_id = Integer.parseInt(request.getParameter("id"));
+
+				
+
+				if(student.updateData(student_id)==true) {
+
+					RequestDispatcher rd = request.getRequestDispatcher("Welcome.jsp");
+
+					rd.forward(request, response);
+
+				}else {
+
+					RequestDispatcher rd = request.getRequestDispatcher("editForm.jsp");
+
+					rd.forward(request, response);
+
+
+				}
+
+			
+
+			}else {
+
+				if(student.storeData()==true) {
+
+					RequestDispatcher rd = request.getRequestDispatcher("StudentDetails.jsp");
+
+					rd.forward(request, response);
+
+				}else {
+
+					System.out.println("Data is not found!");
+
+				}			
+
+			}
+
+		}
+
+	}
+
+
+
+}
