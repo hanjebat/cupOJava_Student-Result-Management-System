@@ -1,6 +1,7 @@
 package jdbc;
 
 import jdbc.Login;
+import jdbc.LoginBean;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
