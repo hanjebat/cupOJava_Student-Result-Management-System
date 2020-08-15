@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import="java.sql.*"%>
 <%@ page session="true" %>
 <%@ page import="jdbc.Login,java.sql.*" %>
+<%@ page import="jdbc.LoginBean" %>
 <%@ page import="jdbc.Student.*" %>
 <%@ include file="header.jsp" %>
 <jsp:useBean id="student" class="jdbc.Student" scope="page"/>
