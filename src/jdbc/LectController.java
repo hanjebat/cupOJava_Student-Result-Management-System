@@ -29,19 +29,17 @@ public class LectController extends HttpServlet {
 
 		 
 	     String name = request.getParameter("name");
-	     int matric = Integer.parseInt(request.getParameter("staffno"));
 	     String kuliyyah = request.getParameter("kuliyyah");
 	     int phone = Integer.parseInt(request.getParameter("phone"));
 	     String username = request.getParameter("username");
 	     String password = request.getParameter("password");
 
 
-		if(name != null && request.getParameter("staffno") != null && kuliyyah != null && request.getParameter("phone") != null && username != null && password != null) {
+		if(name != null && kuliyyah != null && request.getParameter("phone") != null && username != null && password != null) {
 
 			Lecturer lecturer = new Lecturer();
 
 			lecturer.setName(name);
-			lecturer.setStaffNo(staffno);
 			lecturer.setKuliyyah(kuliyyah);
 			lecturer.setPhone(phone);
 			lecturer.setUsername(username);
@@ -63,7 +61,7 @@ public class LectController extends HttpServlet {
 
 				}else {
 
-					RequestDispatcher rd = request.getRequestDispatcher("editForm.jsp");
+					RequestDispatcher rd = request.getRequestDispatcher("editFormLecturer.jsp");
 
 					rd.forward(request, response);
 
