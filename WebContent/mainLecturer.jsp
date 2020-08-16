@@ -34,7 +34,7 @@ session.invalidate();
 
 <h1>eResult Management System</h1>
 
-<form method = "post" action="LoginController">
+<form method = "post" action="LoginControllerLecturer">
 
 
 <div class="login-box">
