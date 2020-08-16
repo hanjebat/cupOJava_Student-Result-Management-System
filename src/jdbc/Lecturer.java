@@ -7,7 +7,6 @@ import java.sql.PreparedStatement;
 public class Lecturer {
 	
 	private String name;
-	private int staffno;
 	private String username;
 	private String password;
 	private String kuliyyah;
@@ -17,12 +16,6 @@ public class Lecturer {
 	}
 	public void setName(String name) {
 		this.name = name;
-	}
-	public int getStaffno() {
-		return staffno;
-	}
-	public void setStaffno(int staffno) {
-		this.staffno = staffno;
 	}
 	public String getUsername() {
 		return username;
