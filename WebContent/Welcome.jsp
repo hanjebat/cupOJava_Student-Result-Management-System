@@ -1,16 +1,59 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import="java.sql.*"%>
 <%@ page session="true" %>
-<%@ page import="jdbc.Login,java.sql.*" %>
+<%@ page import="jdbc.Login" %>
 <%@ page import="jdbc.LoginBean" %>
 <%@ page import="jdbc.Student.*" %>
 <%@ include file="header.jsp" %>
-<jsp:useBean id="student" class="eResult.Student" scope="page"/>
+<jsp:useBean id="student" class="jdbc.Student" scope="page"/>
 <jsp:setProperty name="student" property="*"/>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
 
 <head>
+
+<style>
+
+.button {
+
+	font: arial;
+
+	background-color: #4CAF50;
+
+	font-size: 14px;
+
+	border-radius: 10px;
+
+	width: 150px;
+
+	transition-duration: 0.4s;
+
+	padding: 10px 20px;
+
+}
+
+
+
+.button:hover{
+
+	background-color: black;
+
+	color: white;
+
+}
+
+
+
+* {
+
+  box-sizing: border-box;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+}
+
+</style>
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
@@ -24,30 +67,61 @@
 
 <font face="arial" size="3">
 
-Welcome, <jsp:getProperty name="student" property="username"/>!
-<br><br>
+
 <h2>eResult Management System</h2><br>
 </font>
 
 <table cellpadding="5" cellspacing="5"  border="0" width="60%" bgcolor="#F4F6F7">
-<h2>Student Information</h2>
+
+<h2>Student Main Page</h2>
+
+<form>
+		<div align="center">
+			
+			
+			<input type="submit" class="button" name="student" value="Student Information" formaction="Welcome.jsp"/>
+
+
+			<input type="submit" class="button" value="Course" formaction="CourseOffered.jsp"/>
+
+			
+
+			<input type="submit" class="button" value="Result" formaction="ViewResult.jsp"/>
+			
+			
+			
+			<input type="submit" class="button" value="Logout" formaction="main.jsp"/>
+
+		</div>
+	</form>
+	<br><br>
+
 <%
-try{
-String username=request.getParameter("username");
-String password=request.getParameter("password");
- Class.forName("com.mysql.jdbc.Driver");
-    Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/webapp?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT", "root", " ");  
-    PreparedStatement pstmt=null; //create statement
-    
-    pstmt=con.prepareStatement("select * from student where username='"+username+"' and password='"+password+"'"); //sql select query 
-    
-    ResultSet rs=pstmt.executeQuery(); 
-    if(request.getParameter("login")!=null){
-          while(rs.next()){
+int count=0;
+String username = request.getParameter("username");
+
+Class.forName("com.mysql.cj.jdbc.Driver");
+
+
+
+Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/webapp?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT","root"," ");
+
+
+
+String sql = "select * from student where username=?";
+PreparedStatement statement = con.prepareStatement(sql);
+statement.setString(1,student.getUsername());
+
+ResultSet rs = statement.executeQuery();
+
+if(request.getParameter("username")!=null){
+
+		
+while(rs.next()){
 
             %>
             
-
+			
 			<tr>
 
             <th bgcolor="#DEB887">Full Name</th><td><%=rs.getString("full_name")%></td></tr>
@@ -59,29 +133,44 @@ String password=request.getParameter("password");
             
             <tr><td></td><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href='editForm.jsp?username=<%=rs.getString("username")%>'>Edit</a>
 			</td></tr> 
-            <%
+<%
 
-          } pstmt.close();
 
+
+          } statement.close();
+		
           con.close();
 
     	}
-                    else
-          {
-                       System.out.println("No data found!");
-          }
-}
 
-	catch(Exception e){
-    System.out.println(e);
-}
+                    else
+
+          {
+
+                       System.out.println("No data found!");
+
+          }
 %>
 </table>
 
 <br><br>
-<a href="main.jsp">Logout</a>
+
 
 </center>
+
+<%
+
+String msg = request.getParameter("msg");
+
+if(msg!=null && msg.equals("1")){
+%>
+
+There is an error! Please check !	
+
+<%
+}
+
+%>
 </body>
 </html>
 
