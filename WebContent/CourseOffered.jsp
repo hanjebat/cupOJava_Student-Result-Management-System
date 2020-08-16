@@ -10,7 +10,7 @@
 
 <meta charset="ISO-8859-1">
 
-<title>Course Offered</title>
+<title>Registration Course</title>
 
 </head>
 
@@ -18,11 +18,9 @@
 
 	<div align=center>
 
-		<h1>Course Details</h1>
+		<h1>Course Registration Form</h1>
+		 <font color="red"><strong>Kindly refer to table below for course available!</strong></font>
 
-	
-
-	<form action="CourseOffer" method="post">
 
 		<table cellspacing="1" cellpadding="1" border="0" width="600" bgcolor="#F4F6F7">
 
@@ -92,14 +90,13 @@ while(resultSet.next()){
 
 			<td align="center"><%= course_code %></td>
 
-			<td align="left"><%= course_name %></td>	
+			<td align="left"><%= course_name %></td>
 
 			<td align="center"><%= credit_hour %></td>
 
 			<td align="left"><%= lect_name %></td>
-			<td align="left"><input type="checkbox" id="courseCheck" name="courseCheck" value="<%= course_name %>"></td>
 
-			
+
 		</tr>
 
 <%}
@@ -108,25 +105,41 @@ statement.close();
 
 con.close();
 
-%>
-       <tr><td></td><td></td><td></td><td><center><input type="submit" value="Submit"/></center></td></tr>
-  
-       
-
+%>			
+<br><br>
 		</table>
+<br><br><br>
+			   <form action="CourseRegController" method="post">
+			   <table style="with: 80%">
+			    <tr>
+			     <td>Course code</td>
+			     <td><input type="text" name="course_code" /></td>
+			    </tr>
+			    <tr>
+			     <td>Course Name</td>
+			     <td><input type="text" name="course_name" /></td>
+			    </tr>
+			    <tr>
+			     <td>Credit Hour</td>
+			     <td><input type="number" name="credit_hour" /></td>
+			    </tr>
+			    <tr>
+			     <td>Lecturer Name</td>
+			     <td><input type="text" name="lect_name" /></td>
+			    </tr>
+		
+			   </table>
+			   <input type="submit" value="Submit"/>
+		
 
 	</form>
-
-	</div>
-
-<br>
+	 <br><a href="Welcome.jsp">Back</a>&nbsp;&nbsp;&nbsp;<a href="ViewCourse.jsp">View</a>
 
 <br>
 
-<div align="center"><form>
+<br>
 
-
-</form></div>
+<div align="center"></div>
 
 
 
