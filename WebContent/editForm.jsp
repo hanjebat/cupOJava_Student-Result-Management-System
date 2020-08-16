@@ -30,6 +30,10 @@
 
 
 
+<script type="updateStudent.js"></script>
+
+
+
 <title>Update Student Information</title>
 
 
@@ -172,7 +176,7 @@ while(res.next()){
 
 <br><br>
 
-			<a href="main.jsp">Logout</a></center>
+			<a href="Welcome.jsp">Back</a>&nbsp;&nbsp;&nbsp;<a href="main.jsp">Logout</a></center>
 
 	
 
