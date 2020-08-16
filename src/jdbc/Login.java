@@ -35,10 +35,10 @@ public class Login
              
             while(rs.next())
             {    
-                dbusername=rs.getString("username");   
+                dbusername=rs.getString("username");   //fetchable database record username and password store in this two variable dbusername,dbpassword above created 
                 dbpassword=rs.getString("password"); 
                 
-                if(username.equals(dbusername) && password.equals(dbpassword))  //apply if condition check for fetchable database username and password are match for user input side type in textbox
+                if(username.equals(dbusername) && password.equals(dbpassword))  
                 {
                     return true; //if valid condition return string "SUCCESS LOGIN" 
                 }
