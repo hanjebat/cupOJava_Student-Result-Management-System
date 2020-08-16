@@ -20,11 +20,6 @@
     </tr>
     
      <tr>
-     <td>Staff No</td>
-     <td><input type="number" name="staffno" /></td>
-    </tr>
-    
-     <tr>
      <td>Kuliyyah</td>
      <td><input type="text" name="kuliyyah" /></td>
      </tr>
