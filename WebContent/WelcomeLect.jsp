@@ -73,7 +73,7 @@ String password=request.getParameter("password");
 </table>
 
 <br><br>
-<a href="main.jsp">Logout</a>
+<a href="mainLecturer.jsp">Logout</a>
 
 </center>
 </body>
