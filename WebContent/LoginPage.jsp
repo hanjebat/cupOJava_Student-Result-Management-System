@@ -42,7 +42,7 @@ session.invalidate();
 <div class="login-box">
 	      <h2>Login</h2>
 		<input class="btn" type="submit" name="login" value="Login as Student" formaction="main.jsp"><br>
-		<input class="btn" type="submit" name="login" value="Login as Lecturer" formaction="LoginControllerLect"><br>
+		<input class="btn" type="submit" name="login" value="Login as Lecturer" formaction="mainLecturer.jsp"><br>
 		<input class="btn" type="submit" name="login" value="Login as Admin" formaction="AdminLoginPage.jsp">
 </div>
 
