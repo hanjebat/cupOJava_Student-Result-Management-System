@@ -35,19 +35,19 @@ public class LoginController extends HttpServlet {
             String username=request.getParameter("username"); //get textbox name "username"
             String password=request.getParameter("password"); //get textbox name "password"
             
-            LoginBean loginBean=new LoginBean(); 
+            LoginBean loginBean=new LoginBean();  
             
             loginBean.setUsername(username); //set username through loginBean object
             loginBean.setPassword(password); //set password through loginBean object
             
             Login login=new Login(); //this class contain main logic to perform function calling and database operation
             
-            boolean authorize=login.authorizeLogin(loginBean); //send loginBean object values into authorizeLogin() function in Login class
+            boolean authorize=login.authorizeLogin(loginBean); //send loginBean object values into authorizeLogin() function in LoginDao class
             
             if(authorize==true) //check calling authorizeLogin() function receive string "SUCCESS LOGIN" message after continue process
             {
                 HttpSession session=request.getSession(); //session is created
-                session.setAttribute("Sign in",loginBean.getUsername()); //session name is "sign in" and  store username in "getUsername()" get through loginBean object
+                session.setAttribute("Sign in",loginBean.getUsername()); 
                 RequestDispatcher rd=request.getRequestDispatcher("Welcome.jsp"); //redirect to welcome.jsp page
                 rd.forward(request, response);
             }
