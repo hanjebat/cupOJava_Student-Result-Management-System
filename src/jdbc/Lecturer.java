@@ -52,7 +52,7 @@ public class Lecturer {
 
 	           Class.forName("com.mysql.jdbc.Driver");
 
-	           Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/webapp?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT","root","SatAfiqah!1997!");
+	           Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/webapp?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT","root"," ");
 
 	           sql="INSERT INTO lecturer(full_name, kuliyyah, phone, username, password,) VALUES (?,?,?,?,?)";
 
@@ -97,7 +97,7 @@ public class Lecturer {
 
 	           Class.forName("com.mysql.jdbc.Driver");
 
-	           Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/webapp?autoReconnect=true&useSSL=false","root","SatAfiqah!1997!");
+	           Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/webapp?autoReconnect=true&useSSL=false","root"," ");
 
 	           sql="DELETE FROM lecture WHERE lecture_id = ?";
 
@@ -137,7 +137,7 @@ public class Lecturer {
 
 	           Class.forName("com.mysql.jdbc.Driver");
 
-	           Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/webapp?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT","root","SatAFiqah!1997!");
+	           Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/webapp?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT","root"," ");
 
 	           sql="UPDATE lecturer SET full_name=?, kuliyyah=?, phone=?, username=?, password=? WHERE lecturer_id = ?";
 
