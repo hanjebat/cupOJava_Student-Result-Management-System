@@ -4,7 +4,7 @@
 <%@ page import="jdbc.LoginBean" %>
 <%@ page import="jdbc.Student.*" %>
 <%@ include file="header.jsp" %>
-<jsp:useBean id="student" class="jdbc.Student" scope="page"/>
+<jsp:useBean id="student" class="eResult.Student" scope="page"/>
 <jsp:setProperty name="student" property="*"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
@@ -51,14 +51,14 @@ String password=request.getParameter("password");
 			<tr>
 
             <th bgcolor="#DEB887">Full Name</th><td><%=rs.getString("full_name")%></td></tr>
-            <tr><th bgcolor="#DEB887">Matric Number<td><%=rs.getInt("matric_no")%></td></th></tr>
+            <tr><th bgcolor="#DEB887">Matric Number<td><%=rs.getString("matric_no")%></td></th></tr>
             <tr><th bgcolor="#DEB887">Kuliyyah</th><td><%=rs.getString("kuliyyah")%></td></tr>
-            <tr><th bgcolor="#DEB887">Phone Number</th><td><%=rs.getInt("phone")%></td></tr>
+            <tr><th bgcolor="#DEB887">Phone Number</th><td><%=rs.getString("phone")%></td></tr>
             <tr><th bgcolor="#DEB887">Username</th><td><%=rs.getString("username")%></td></tr>
             <tr><th bgcolor="#DEB887"> Password</th><td><%=rs.getString("password")%></td></tr>     
             
             <tr><td></td><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href='editForm.jsp?username=<%=rs.getString("username")%>'>Edit</a>
-	    </td></tr> 
+			</td></tr> 
             <%
 
           } pstmt.close();
