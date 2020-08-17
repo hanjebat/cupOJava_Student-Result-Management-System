@@ -52,9 +52,8 @@ public class Lecturer {
 
 	           Class.forName("com.mysql.jdbc.Driver");
 
-	           Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/webapp?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT","root"," ");
-
-	           sql="INSERT INTO lecturer(full_name, kuliyyah, phone, username, password,) VALUES (?,?,?,?,?)";
+	           Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eresult?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT","root","hannah");
+	           sql="INSERT INTO lecturer(name, kuliyyah, phone, username, password,) VALUES (?,?,?,?,?)";
 
 	           PreparedStatement statement = con.prepareStatement(sql);      
 	           
@@ -96,51 +95,31 @@ public class Lecturer {
 	           String sql = "";
 
 	           Class.forName("com.mysql.jdbc.Driver");
-
-	           Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/webapp?autoReconnect=true&useSSL=false","root"," ");
-
+	           Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eresult?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT","root","hannah");
 	           sql="DELETE FROM lecture WHERE lecture_id = ?";
-
 	           PreparedStatement statement = con.prepareStatement(sql);                
-
 	           statement.setInt(1, id);
-
 	           statement.executeUpdate();
-
 	           statement.close();
-
 	           con.close();
 
 	           return true;    
-
 	        }
-
 	        catch(Exception ex)
-
 	        {
-
 	        	return false;
-
 	        }   
-
 	}
 
 	
 
 	public boolean updateData(int id){
-
 		 try
-
 	        {
-
 	           String sql = "";
-
 	           Class.forName("com.mysql.jdbc.Driver");
-
-	           Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/webapp?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT","root"," ");
-
-	           sql="UPDATE lecturer SET full_name=?, kuliyyah=?, phone=?, username=?, password=? WHERE lecturer_id = ?";
-
+	           Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eresult?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT","root","hannah");
+	           sql="UPDATE lecturer SET name=?, kuliyyah=?, phone=?, username=?, password=? WHERE lecturer_id = ?";
 	           PreparedStatement statement = con.prepareStatement(sql);                
 
 	           statement.setString(1, getName());
@@ -149,12 +128,9 @@ public class Lecturer {
 	           statement.setString(4, getUsername());
 	           statement.setString(5, getPassword());
 	           statement.setInt(6, id);
-
 	           statement.executeUpdate();
 			   statement.close();
-
-				con.close();
-
+			   con.close();
 				return true;
 
 	        }
@@ -172,4 +148,3 @@ public class Lecturer {
 
 
 	}
-
