@@ -5,7 +5,7 @@
 <%@ page import="jdbc.Lecturer.*" %>
 <%@ include file="header.jsp" %>
 <jsp:useBean id="lecturer" class="jdbc.Lecturer" scope="page"/>
-<jsp:setProperty name="student" property="*"/>
+<jsp:setProperty name="lecturer" property="*"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
@@ -33,30 +33,27 @@ Welcome, <jsp:getProperty name="lecturer" property="username"/>!
 <h2>Lecturer Information</h2>
 <%
 try{
-String username=request.getParameter("username");
-String password=request.getParameter("password");
- Class.forName("com.mysql.jdbc.Driver");
-    Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/webapp?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT", "root", "SatAfiqah!1997!");  
-    PreparedStatement pstmt=null; //create statement
-    
-    pstmt=con.prepareStatement("select * from lecturer where username='"+username+"' and password='"+password+"'"); //sql select query 
-    
+	String username=request.getParameter("username");
+	// password=request.getParameter("password");
+ 	Class.forName("com.mysql.jdbc.Driver");
+    Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/eresult?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT", "root", "hannah");  
+    String sql = "select * from lecturer where username=?";
+    PreparedStatement pstmt=con.prepareStatement(sql); //sql select query 
+    pstmt.setString(1,lecturer.getUsername());
     ResultSet rs=pstmt.executeQuery(); 
-    if(request.getParameter("login")!=null){
+    if(request.getParameter("username")!=null){
           while(rs.next()){
+        	  int id = rs.getInt("lecturer_id");
             %>
-            
-
 			<tr>
-
-            <th bgcolor="#DEB887">Full Name</th><td><%=rs.getString("full_name")%></td></tr>
+            <th bgcolor="#DEB887">Full Name</th><td><%=rs.getString("name")%></td></tr>
             <tr><th bgcolor="#DEB887">Kuliyyah</th><td><%=rs.getString("kuliyyah")%></td></tr>
             <tr><th bgcolor="#DEB887">Phone Number</th><td><%=rs.getInt("phone")%></td></tr>
             <tr><th bgcolor="#DEB887">Username</th><td><%=rs.getString("username")%></td></tr>
             <tr><th bgcolor="#DEB887"> Password</th><td><%=rs.getString("password")%></td></tr>     
             
-            <tr><td></td><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href='editForm.jsp?username=<%=rs.getString("username")%>'>Edit</a>
-	    </td></tr> 
+ 			<tr><td></td><td><a href='EditLecturer.jsp?id=<%=id%>'>Edit</a></td></tr> 
+            
             <%
           } pstmt.close();
           con.close();
@@ -73,7 +70,7 @@ String password=request.getParameter("password");
 </table>
 
 <br><br>
-<a href="mainLecturer.jsp">Logout</a>
+<a href="Lecturer_Main.jsp">Logout</a>
 
 </center>
 </body>
