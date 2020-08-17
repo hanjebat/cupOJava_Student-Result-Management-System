@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import="java.sql.*" import="jdbc.Login,java.sql.*"
-    import="jdbc.Student.*" session="true"%>
-<jsp:useBean id="student" class="jdbc.Student" scope="page"/>
-<jsp:setProperty name="student" property="*"/>
+    session="true"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,6 +40,8 @@
 			<input type="submit" class="button" value="Student" formaction="Admin_Students.jsp"/>
 			<br><br>
 			<input type="submit" class="button" value="Lecturer" formaction="Admin_Lecturer.jsp"/>
+			<br><br>
+			<input type="submit" class="button" value="Logout" formaction="AdminLoginPage.jsp"/>
 		</div>
 	</form>
 </body>
