@@ -77,7 +77,6 @@ con.close();
 <br>
 <br>
 <div align="center"><form>
-<input type="submit" value="New Student" formaction="StudentRegister.jsp"/>
 <input type="submit" value="Back to Menu" formaction="Admin_Main.jsp"/>
 </form></div>
 
