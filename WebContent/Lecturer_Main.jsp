@@ -38,10 +38,10 @@ session.invalidate();
 
 
 <div class="login-box">
-	      <h2>Login</h2>
+	      <h2>Login Lecturer</h2>
 	      <div class="textbox">
 	        <i class="fa fa-user" aria-hidden="true"></i>
-	        <input type="text" placeholder="Student Username" name="username" required="">
+	        <input type="text" placeholder="Username" name="username" required="">
 	      </div>	
 	      <div class="textbox">
 	        <i class="fa fa-lock" aria-hidden="true"></i>
