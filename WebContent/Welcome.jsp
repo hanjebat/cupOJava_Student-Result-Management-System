@@ -14,45 +14,23 @@
 <head>
 
 <style>
-
 .button {
-
 	font: arial;
-
 	background-color: #4CAF50;
-
 	font-size: 14px;
-
 	border-radius: 10px;
-
 	width: 150px;
-
 	transition-duration: 0.4s;
-
 	padding: 10px 20px;
-
 }
-
-
-
 .button:hover{
-
 	background-color: black;
-
 	color: white;
-
 }
-
-
-
 * {
-
   box-sizing: border-box;
-
   font-family: Arial, Helvetica, sans-serif;
-
 }
-
 </style>
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -99,31 +77,20 @@
 <%
 int count=0;
 String username = request.getParameter("username");
-
 Class.forName("com.mysql.cj.jdbc.Driver");
-
-
-
 Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/webapp?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT","root"," ");
-
-
-
 String sql = "select * from student where username=?";
 PreparedStatement statement = con.prepareStatement(sql);
 statement.setString(1,student.getUsername());
-
+//statement.setInt(1,id);
 ResultSet rs = statement.executeQuery();
-
 if(request.getParameter("username")!=null){
-
 		
 while(rs.next()){
-
+	int id=rs.getInt("student_id");
             %>
             
-			
 			<tr>
-
             <th bgcolor="#DEB887">Full Name</th><td><%=rs.getString("full_name")%></td></tr>
             <tr><th bgcolor="#DEB887">Matric Number<td><%=rs.getString("matric_no")%></td></th></tr>
             <tr><th bgcolor="#DEB887">Kuliyyah</th><td><%=rs.getString("kuliyyah")%></td></tr>
@@ -131,24 +98,16 @@ while(rs.next()){
             <tr><th bgcolor="#DEB887">Username</th><td><%=rs.getString("username")%></td></tr>
             <tr><th bgcolor="#DEB887"> Password</th><td><%=rs.getString("password")%></td></tr>     
             
-            <tr><td></td><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href='editForm.jsp?username=<%=rs.getString("username")%>'>Edit</a>
+            <tr><td></td><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href='editForm.jsp?id=<%=id%>'>Edit</a>
 			</td></tr> 
 <%
-
-
-
           } statement.close();
 		
           con.close();
-
     	}
-
                     else
-
           {
-
                        System.out.println("No data found!");
-
           }
 %>
 </table>
@@ -159,9 +118,7 @@ while(rs.next()){
 </center>
 
 <%
-
 String msg = request.getParameter("msg");
-
 if(msg!=null && msg.equals("1")){
 %>
 
@@ -169,8 +126,6 @@ There is an error! Please check !
 
 <%
 }
-
 %>
 </body>
 </html>
-
